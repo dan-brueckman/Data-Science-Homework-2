@@ -1,7 +1,6 @@
 import os
 import csv
 import sys
-
 csv_path = os.path.join(".", "election_data_1.csv")
 
 with open(csv_path, "r") as csvfile:
@@ -23,10 +22,11 @@ with open(csv_path, "r") as csvfile:
     total_votes = len(num_votes)
     high_votes = max(ind_votes)
     for p in ind_votes:
-        final_percent.append((p / total_votes) * 100)
+        final_percent.append((p/total_votes)*100)
         if p == high_votes:
             winner_index = ind_votes.index(p)
-    winner = who_ran[winner_index]
+    winner = who_ran[winner_index]  
+    
 
 print("Election Results")
 print("------------------")
