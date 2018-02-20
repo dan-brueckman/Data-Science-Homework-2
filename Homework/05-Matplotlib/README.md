@@ -1,16 +1,20 @@
 
 
 ```python
-print("Analysis")
-print("Trend 1: Of the 4 drugs analyzed here, Capomulin had the highest survival rate, losing less than 20% of mice studied. The next best drug (Ketapril), lost 40% of mice.")
-print("Trend 2: Of the 4 drugs analyzed here, Capomulin had the fewest instances of metastatic spread during treatment. Capomulin had an average of 1.5 new sites by the 45th day. The next closest (Infubinol) had just over 2 sites on average.")
-print("Trend 3: Of the 4 drugs analyzed here, Capomulin was the only drug to show an actual decrease in tumor volume during the study. Tumor volume decreased on average by nearly 20%, while it's closest competitor in the study showed tumor volume increases of 46% on average.")
+print("Analysis\n")
+print("Trend 1: Of the 4 drugs analyzed here, Capomulin had the highest survival rate, losing less than 20% of mice studied. The next best drug (Ketapril), lost 40% of mice.\n")
+print("Trend 2: Of the 4 drugs analyzed here, Capomulin had the fewest instances of metastatic spread during treatment. Capomulin had an average of 1.5 new sites by the 45th day. The next closest (Infubinol) had just over 2 sites on average.\n")
+print("Trend 3: Of the 4 drugs analyzed here, Capomulin was the only drug to show an actual decrease in tumor volume during the study. Tumor volume decreased on average by nearly 20%, while it's closest competitor in the study showed tumor volume increases of 46% on average.\n")
 ```
 
     Analysis
+    
     Trend 1: Of the 4 drugs analyzed here, Capomulin had the highest survival rate, losing less than 20% of mice studied. The next best drug (Ketapril), lost 40% of mice.
+    
     Trend 2: Of the 4 drugs analyzed here, Capomulin had the fewest instances of metastatic spread during treatment. Capomulin had an average of 1.5 new sites by the 45th day. The next closest (Infubinol) had just over 2 sites on average.
+    
     Trend 3: Of the 4 drugs analyzed here, Capomulin was the only drug to show an actual decrease in tumor volume during the study. Tumor volume decreased on average by nearly 20%, while it's closest competitor in the study showed tumor volume increases of 46% on average.
+    
     
 
 
@@ -454,14 +458,30 @@ inf_tumor_changes = (((infubinol_1['Tumor Volume (mm3)'].iloc[9]-infubinol_1['Tu
 ket_tumor_changes = (((ketapril_1['Tumor Volume (mm3)'].iloc[9]-ketapril_1['Tumor Volume (mm3)'].iloc[0])/45)*100)
 pla_tumor_changes = (((placebo_1['Tumor Volume (mm3)'].iloc[9]-placebo_1['Tumor Volume (mm3)'].iloc[0])/45)*100)
 
-tumor_change_series = pd.Series([cap_tumor_changes, inf_tumor_changes, ket_tumor_changes, pla_tumor_changes], index = drug_list)
+tumor_changes = pd.Series([cap_tumor_changes, inf_tumor_changes, ket_tumor_changes, pla_tumor_changes])
+new_tumor_changes = []
+for var in tumor_changes:
+    var = int(var)
+    new_tumor_changes.append(var)
+    
+x_axis = np.arange(len(drug_list))
 
-tumor_change_series.plot(kind = "bar", color = "g")
+bar_graph = plt.bar(x_axis, tumor_changes, align="edge")
+
+for bar in new_tumor_changes:
+    if bar < 0: 
+        bar_graph[new_tumor_changes.index(bar)].set_color("g")
+    else:
+        bar_graph[new_tumor_changes.index(bar)].set_color("r")
+        
+
+tick_locations = [value+0.4 for value in x_axis]
+plt.xticks(tick_locations, drug_list)
 
 plt.title("Tumor Change over 45 Day Treatment")
 plt.ylabel("% Tumor Volume Change")
 
-plt.ylim(min(tumor_change_series - 20), max(tumor_change_series + 20))
+plt.ylim(min(tumor_changes) - 20, max(tumor_changes) + 20)
 plt.grid()
 
 
