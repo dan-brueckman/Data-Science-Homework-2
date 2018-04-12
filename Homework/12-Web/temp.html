@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Latitude vs X - Home</title>
+      <title>Latitude vs Temperature</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <link rel="stylesheet" href="Page 1.css">
     </head>
@@ -42,54 +42,47 @@
         <div class="container" >
                 <div class="row">
                 <div class="col-xs-12" id="mainheader">
-                <h1>What's the Weather Like??</h1>
-                  </div>
+                <h1>Temperature vs. Latitude</h1>
                 </div>
-<br>
+                </div>
                 <div class="row">
-                    <div class="col-xs-8">
-                      <br>
-                <p>Whether financial, political, or social -- data's true power lies in its ability to answer questions definitively. 
-                    So in this project, I used Python, APIs, and JSON traversals to answer a fundamental question:
-                     "What's the weather like as we approach the equator?" .</p> 
+                <div class="col-xs-8">
+                    <br>
+                    <br>
+                    <a target="_blank" href="temp.html">
+                            <img src="temp png.png" class= 'img-thumbnail img-responsive' alt="Temperature"></a>
                 <br>
-                <p>Now, I know what you may be thinking: "Duh. It gets hotter..." But, if pressed, could you prove it?</p>
                 <br>
-                <p>The purpose of this project was to analyze how 
-                    weather changes as you get closer to the equator. To accomplish this analysis, I first
-                    pulled data from the OpenWeatherMap API to assemble a dataset on over 500 cities. </p>
-                <br>
-                <p>After assembling the dataset, I used Matplotlib to plot various aspects
-                of the weather vs. latitude. Factors I looked at included:
-                temperature, cloudiness, wind speeds, and humidity. This site provides the 
-                source data and visualizations created as part of the analysis, as well as 
-                explanations and descriptions of any trends and correlations witnessed.
+                <p>As expected, the weather becomes significantly warmer as one approaches the equator (0 Deg. Latitude).
+                    More interestingly, however, is the fact that the southern hemisphere tends to be warmer this time of
+                    year than the northern hemisphere. This may be due to the tilt of the earth at the time of the year this data was gathered. 
                 </p>
             
             </div>
-            
+            <br>
             <div class="col-xs-2" id="sidebar">
-                <h3>Visualizations</h3>
                 
-                      <a target="_blank" href="clouds.html">
-                        <img src="clouds png.png" class= 'img-thumbnail img-responsive' alt="Clouds">
-                      </a>
-                      <p><em>Cloud Data</em></p></li>
-                      <a target="_blank" href="humidity.html">
-                        <img src="humidity png.png" class= 'img-thumbnail img-responsive' alt="Humidity"></a>
-                        <p><em>Humidity Data</em></p></li>
-                      </div>
-        <div class="col-xs-2" id="sidebar">
-                    <h3><br></h3>
-                      <a target="_blank" href="temp.html">
-                        <img src="temp png.png" class= 'img-thumbnail img-responsive' alt="Temperature"></a>
-                        <p><em>Temperature Data</em></p></li>
-                      <a target="_blank" href="wind.html">
-                        <img src="wind speed png.png" class= 'img-thumbnail img-responsive' alt="Wind Speed"></a>
-                        <p><em>Wind Speed Data</em></p></li>
-              
-            </div>
-            
+                    <h3>Visualizations</h3>
+                    
+                          <a target="_blank" href="clouds.html">
+                            <img src="clouds png.png" class= 'img-thumbnail img-responsive' alt="Clouds">
+                          </a>
+                          <p><em>Cloud Data</em></p></li>
+                          <a target="_blank" href="humidity.html">
+                            <img src="humidity png.png" class= 'img-thumbnail img-responsive' alt="Humidity"></a>
+                            <p><em>Humidity Data</em></p></li>
+                          </div>
+            <div class="col-xs-2" id="sidebar">
+                
+                        <h3><br></h3>
+                          <a target="_blank" href="temp.html">
+                            <img src="temp png.png" class= 'img-thumbnail img-responsive' alt="Temperature"></a>
+                            <p><em>Temperature Data</em></p></li>
+                          <a target="_blank" href="wind.html">
+                            <img src="wind speed png.png" class= 'img-thumbnail img-responsive' alt="Wind Speed"></a>
+                            <p><em>Wind Speed Data</em></p></li>
+                  
+                </div>
               </div>
               
         </div>
