@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container" >
+        <div class="jumbotron text-center">
+            <h1>Belly Button Biodiversity Dashboard</h1>
+            <h4>Use the interactive charts below to explore the dataset</h4>
+        </div>
+        <div class="row">
+            <div class="row-xs-4"></div>
+                <select id="selDataset" onchange="optionChanged(this.value)"></select>
+            <div class="row-xs-8" id="pie"></div>
+        </div>
+        <div class="row">
+            <div class="row-xs-12" id="bubble"></div>
+        </div>
+    </div>
+    
+    <div id="pie"></div>
+    <script>
+        Plotly.d3.json('/pie', function(error, data){
+            if (error) return console.warn(error);
+
+            var layout = {
+                title: "Lyric Frequency"}
+            var PIE = document.getElementById('pie');
+            Plotly.plot(PIE, data, layout);
+        })
+    </script>
+</body>
+</html>
