@@ -53,15 +53,30 @@ d3.csv("data.csv", function(error, data) {
       .style("text-anchor", "end")
       .text("Sepal Length (cm)")
 
+  var toolTip = d3.select("body")
+      .append("div")
+      .style("display", "none")
+      .classed("tooltip", true)
+
   svg.selectAll(".dot")
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
-      .attr("r", 15)
+      .attr("r", 5)
       .attr("cx", function(d) { return x(d.bachelors_over_25); })
       .attr("cy", function(d) { return y(d.active_past_month); })
       .style("fill", "grey") //function(d) { return color(d.state); });
-
+      .on("mouseover", function (d) {
+        toolTip.style("display", "block")
+          .html(
+            `<strong>${d.bachelors_over_25}<strong>`)
+          .style("left", d3.event.pageX + "px")
+          .style("top", d3.event.pageY + "px")
+      })
+      // Step 3: Create "mouseout" event listener to hide tooltip
+      .on("mouseout", function () {
+        toolTip.style("display", "none")
+      });
   svg.selectAll(".dodo")
       .data(data)
      .enter().append("text")
